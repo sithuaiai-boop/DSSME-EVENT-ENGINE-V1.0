@@ -54,6 +54,31 @@ export interface DSSMEEventInput {
   };
 }
 
+export type EventType =
+  | 'Lottery Draw'
+  | 'General Event'
+  | 'Prashna'
+  | 'Transit Event'
+  | 'Custom Event';
+
+export interface EventProfile {
+  eventId: string;
+  eventName: string;
+  eventType: EventType;
+  localDate: string;  // YYYY-MM-DD
+  localTime: string;  // HH:mm:ss
+  timezone: string;   // IANA identifier e.g. "Asia/Yangon"
+  latitude: number;
+  longitude: number;
+  country: string;
+  state?: string;
+  city: string;
+  ayanamsa: string;
+  notes?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface DSSMEEvent {
   id: string;
   module: string; // MOD-01 to MOD-15
@@ -77,6 +102,7 @@ export interface DSSMEEvent {
 export interface PlanetState {
   name: string;
   sign: string;
+  degree?: string; // XX°YY'ZZ" (canonical benchmark field)
   degreeInSign: number; // 0-30
   degreeFormatted: string; // XX°YY'ZZ"
   totalLongitude: number; // 0-360
@@ -154,8 +180,10 @@ export interface HouseInfo {
 export interface ShadbalaState {
   _columns: string[];
   total_virupas: number[];
+  total_rupas?: number[];
   minimum_required: number[];
   percent_required: number[];
+  strength_ratio?: number[];
   rank: number[];
   sthana_total: number[];
   sthana_pct?: number[];

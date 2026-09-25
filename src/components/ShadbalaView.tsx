@@ -62,9 +62,14 @@ export const ShadbalaView: React.FC<ShadbalaViewProps> = ({ chart }) => {
                 </div>
 
                 <div className="mb-3">
-                  <p className="text-2xl font-bold font-mono text-slate-100">{tot}</p>
+                  <div className="flex items-baseline gap-1.5">
+                    <p className="text-2xl font-bold font-mono text-slate-100">{tot}</p>
+                    <span className="text-xs text-purple-300 font-mono font-medium">
+                      {(tot / 60).toFixed(2)} R
+                    </span>
+                  </div>
                   <p className="text-[10px] text-slate-400 font-mono">
-                    Req: {min} ({pct}%)
+                    Req: {min} ({pct}%) • Ratio: {(tot / min).toFixed(2)}
                   </p>
                 </div>
               </div>

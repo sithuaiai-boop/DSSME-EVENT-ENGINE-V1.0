@@ -84,6 +84,7 @@ export async function calculateCanonicalChart(input: DSSMEEventInput): Promise<C
   planets['Lagna'] = {
     name: 'Lagna',
     sign: lagnaPos.sign,
+    degree: lagnaPos.formattedDegree,
     degreeInSign: lagnaPos.degreeInSign,
     degreeFormatted: lagnaPos.formattedDegree,
     totalLongitude: snap.lagnaLongitude,
@@ -127,6 +128,7 @@ export async function calculateCanonicalChart(input: DSSMEEventInput): Promise<C
     planets[name] = {
       name,
       sign: pos.sign,
+      degree: pos.formattedDegree,
       degreeInSign: pos.degreeInSign,
       degreeFormatted: pos.formattedDegree,
       totalLongitude: raw.longitude,

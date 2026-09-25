@@ -17,9 +17,14 @@ export async function solveEventsForChart(
   const timeStr = chart.IDENTITY.time;
   const localIso = `${dateStr}T${timeStr}`;
   const tzOffset = parseTimezoneOffset(tz);
-  const { jdUtc, hourUtc } = parseDateToJulianDay(localIso, tzOffset);
+  const { year, month, day, jdUtc, hourUtc } = parseDateToJulianDay(localIso, tzOffset);
 
-  const utcIso = new Date(Date.UTC(2026, 8, 16, Math.floor(hourUtc), Math.floor((hourUtc % 1) * 60))).toISOString();
+  const hUtc = Math.floor(hourUtc);
+  const mUtc = Math.floor((hourUtc - hUtc) * 60);
+  const sUtc = Math.round(((hourUtc - hUtc) * 60 - mUtc) * 60);
+  const normS = sUtc === 60 ? 0 : sUtc;
+  const normM = sUtc === 60 ? mUtc + 1 : mUtc;
+  const utcIso = new Date(Date.UTC(year, month - 1, day, hUtc, normM, normS)).toISOString();
 
   let eventCounter = 1;
   const createEv = (

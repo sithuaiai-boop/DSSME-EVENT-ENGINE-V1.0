@@ -158,6 +158,7 @@ export function parseTimezoneOffset(tzStr: string): number {
   const clean = tzStr.trim();
   if (clean === 'Z' || clean === 'UTC' || clean === 'GMT') return 0;
 
+  // 1. Direct offset match like "+09:00", "-05:00", "UTC+9", "UTC+06:30"
   const match = clean.match(/(?:UTC|GMT)?([+-])(\d{1,2})(?::?(\d{2}))?/i);
   if (match) {
     const sign = match[1] === '-' ? -1 : 1;
@@ -166,11 +167,24 @@ export function parseTimezoneOffset(tzStr: string): number {
     return sign * (h + m / 60);
   }
 
-  // Common aliases
+  // 2. IANA timezone identifier resolution via Intl.DateTimeFormat
+  try {
+    const formatted = new Date().toLocaleString('en-US', { timeZone: clean, timeZoneName: 'longOffset' });
+    const ianaMatch = formatted.match(/GMT([+-]\d{1,2}):?(\d{2})?/);
+    if (ianaMatch) {
+      const h = parseInt(ianaMatch[1], 10);
+      const m = ianaMatch[2] ? parseInt(ianaMatch[2], 10) : 0;
+      return h + (h >= 0 ? m / 60 : -m / 60);
+    }
+  } catch {
+    // Continue to known alias fallback
+  }
+
+  // 3. Common civil aliases
   if (clean === 'JST' || clean === 'Japan' || clean.includes('Tokyo')) return 9;
-  if (clean === 'MMT' || clean.includes('Yangon') || clean.includes('Myanmar')) return 6.5;
+  if (clean === 'MMT' || clean.includes('Yangon') || clean.includes('Myanmar') || clean.includes('Burma')) return 6.5;
   if (clean === 'ICT' || clean.includes('Bangkok') || clean.includes('Thailand')) return 7;
-  if (clean === 'IST' || clean === 'India') return 5.5;
+  if (clean === 'IST' || clean === 'India' || clean.includes('Kolkata')) return 5.5;
   if (clean === 'EST') return -5;
   if (clean === 'EDT') return -4;
   if (clean === 'CST') return -6;

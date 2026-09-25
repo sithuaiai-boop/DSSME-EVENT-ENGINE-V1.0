@@ -82,8 +82,10 @@ export function calculateShadbala(
   return {
     _columns: columns,
     total_virupas: totalVirupas,
+    total_rupas: totalVirupas.map((v) => Math.round((v / 60) * 100) / 100),
     minimum_required: minRequired,
     percent_required: pctRequired,
+    strength_ratio: totalVirupas.map((v, idx) => Math.round((v / minRequired[idx]) * 1000) / 1000),
     rank: ranks,
     sthana_total: sthana,
     dig_bala: dig,

@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { Sparkles } from 'lucide-react';
 import { DSSMEEventInput, CanonicalChart, DSSMEEvent } from './engine/types.js';
 import { calculateCanonicalChart } from './engine/chart/calculateChart.js';
 import { solveEventsForChart } from './engine/events/eventSolver.js';
@@ -17,8 +18,11 @@ import { AshtakavargaView } from './components/AshtakavargaView.js';
 import { DashaView } from './components/DashaView.js';
 import { ApiSpecView } from './components/ApiSpecView.js';
 import { NewDayControl } from './components/NewDayControl.js';
+import { DrawCountdownHeader } from './components/DrawCountdownHeader.js';
+import { EventDataEntryModal } from './components/EventDataEntryModal.js';
 import { DailyCalculationRecord } from './engine/day/dayTypes.js';
 import { LOTTERY_DRAW_TIMES, getDrawTimeString } from './engine/lottery/drawConfig.js';
+import { EventProfile } from './engine/types.js';
 
 interface Preset {
   id: string;
@@ -78,6 +82,32 @@ export default function App() {
   const [events, setEvents] = useState<DSSMEEvent[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [isEventModalOpen, setIsEventModalOpen] = useState<boolean>(false);
+  const [activeEventProfile, setActiveEventProfile] = useState<EventProfile | null>(null);
+
+  const handleEventChartCreated = async (profile: EventProfile, calculatedChart: CanonicalChart) => {
+    setActiveEventProfile(profile);
+    setChart(calculatedChart);
+    setDatetime(`${profile.localDate} ${profile.localTime}`);
+    setTimezone(profile.timezone);
+    setCity(profile.city);
+    setCountry(profile.country);
+    setLatitude(profile.latitude);
+    setLongitude(profile.longitude);
+    const input: DSSMEEventInput = {
+      datetime: `${profile.localDate} ${profile.localTime}`,
+      timezone: profile.timezone,
+      location: {
+        latitude: profile.latitude,
+        longitude: profile.longitude,
+        city: profile.city,
+        country: profile.country,
+      },
+      ayanamsa: 'Lahiri',
+    };
+    const solved = await solveEventsForChart(input, calculatedChart);
+    setEvents(solved);
+  };
 
   // Run calculation
   const runCalculation = async () => {
@@ -112,6 +142,17 @@ export default function App() {
   useEffect(() => {
     runCalculation();
   }, [datetime, timezone, latitude, longitude, city, country]);
+
+  useEffect(() => {
+    if (!chofuChart) {
+      calculateCanonicalChart({
+        datetime: '2026-09-16 18:50:00',
+        timezone: 'Asia/Tokyo',
+        location: { latitude: 35.6528, longitude: 139.5447, city: 'Chofu', country: 'Japan' },
+        ayanamsa: 'Lahiri',
+      }).then(setChofuChart).catch(console.error);
+    }
+  }, [chofuChart]);
 
   const handleSelectPreset = (index: number) => {
     setSelectedPresetIndex(index);
@@ -179,17 +220,34 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 self-start md:self-auto">
+          <div className="flex items-center gap-2.5 self-start md:self-auto flex-wrap">
+            {/* Visual Notification: Authoritative Draw Countdown & Status */}
+            <DrawCountdownHeader
+              selectedDraw={LOTTERY_DRAW_TIMES[selectedPresetIndex] || LOTTERY_DRAW_TIMES[0]}
+              targetDate={datetime.split(' ')[0] || '2026-09-25'}
+              onSelectDraw={handleSelectPreset}
+            />
+
+            {/* New Event Chart Dialog Trigger */}
+            <button
+              onClick={() => setIsEventModalOpen(true)}
+              className="px-3 py-1.5 rounded-xl text-xs font-mono font-bold bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 shadow-md shadow-amber-950/20 flex items-center gap-1.5 transition-all cursor-pointer"
+              title="Open Event Chart Data Entry Dialog"
+            >
+              <Sparkles className="w-3.5 h-3.5 fill-current" />
+              <span>NEW EVENT CHART</span>
+            </button>
+
             <button
               onClick={() => setActiveTab('benchmark')}
-              className="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all flex items-center gap-1.5 cursor-pointer"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               FIXTURE #1: 100% PASS
             </button>
             <button
               onClick={runCalculation}
-              className="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
+              className="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors cursor-pointer"
             >
               Recalculate ↻
             </button>
@@ -208,9 +266,12 @@ export default function App() {
             {PRESETS.map((p, idx) => (
               <button
                 key={p.id}
-                onClick={() => handleSelectPreset(idx)}
+                onClick={() => {
+                  setActiveEventProfile(null);
+                  handleSelectPreset(idx);
+                }}
                 className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors font-medium text-xs font-mono flex items-center gap-1.5 ${
-                  selectedPresetIndex === idx
+                  selectedPresetIndex === idx && !activeEventProfile
                     ? 'bg-amber-500 text-slate-950 font-bold shadow'
                     : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                 }`}
@@ -218,7 +279,7 @@ export default function App() {
                 <span>{p.label}</span>
                 <span
                   className={`text-[10px] px-1 py-0.2 rounded font-semibold ${
-                    selectedPresetIndex === idx
+                    selectedPresetIndex === idx && !activeEventProfile
                       ? 'bg-slate-950/20 text-slate-950'
                       : 'bg-slate-900 text-slate-400'
                   }`}
@@ -227,10 +288,27 @@ export default function App() {
                 </span>
               </button>
             ))}
+
+            <button
+              onClick={() => setIsEventModalOpen(true)}
+              className="px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-colors font-medium text-xs font-mono flex items-center gap-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:bg-amber-500/20 cursor-pointer"
+              title="Open Event Chart Data Entry Dialog"
+            >
+              <span>+ New Event</span>
+            </button>
           </div>
 
-          {/* Current Coords & Time Info */}
+          {/* Active Event Profile & Current Coords */}
           <div className="flex items-center gap-3 font-mono text-[11px] text-slate-400">
+            {activeEventProfile && (
+              <div className="flex items-center gap-1.5 bg-amber-500/15 border border-amber-500/30 px-2.5 py-1 rounded-lg text-amber-300">
+                <span className="font-bold text-amber-400">Event:</span>
+                <span className="font-semibold text-slate-100">{activeEventProfile.eventName}</span>
+                <span className="text-[9px] text-amber-400/90 bg-slate-950/60 px-1 py-0.2 rounded">
+                  {activeEventProfile.eventType}
+                </span>
+              </div>
+            )}
             <span className="text-slate-300">
               <span className="text-slate-500">Time:</span> {datetime} ({timezone})
             </span>
@@ -426,6 +504,16 @@ export default function App() {
           Benchmark Fixture: <span className="text-slate-400">Chofu, Japan (2026-09-16)</span> • 100% Deterministic
         </div>
       </footer>
+
+      {/* Event Data Entry Dialog (Classic Desktop Window Style) */}
+      <EventDataEntryModal
+        isOpen={isEventModalOpen}
+        onClose={() => setIsEventModalOpen(false)}
+        onChartCreated={handleEventChartCreated}
+        calculateChartFn={calculateCanonicalChart}
+        initialDate={datetime.split(' ')[0] || '2026-09-25'}
+        initialDrawPresetIndex={selectedPresetIndex}
+      />
     </div>
   );
 }
