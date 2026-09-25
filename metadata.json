@@ -1,0 +1,6 @@
+{
+  "name": "DSSME EVENT ENGINE V1.0",
+  "description": "Deterministic astronomical and Vedic event calculation engine with modular event detection, Swiss Ephemeris WASM runtime, and benchmark validation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

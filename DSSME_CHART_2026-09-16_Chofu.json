@@ -1,0 +1,1022 @@
+{
+  "IDENTITY": {
+    "date": "2026-09-16",
+    "day": "Wednesday",
+    "time": "18:50:00",
+    "timezone": "UTC+9",
+    "location_city": "Chofu",
+    "location_country": "Japan",
+    "latitude": "35.6528° N",
+    "longitude": "139.5447° E",
+    "ayanamsa_name": "Lahiri",
+    "ayanamsa_value": "24°13'48\"",
+    "lagna_sign": "Pisces",
+    "lagna_degree": "25°09'04\"",
+    "lagna_type": "Dual",
+    "body_mode": "9-body",
+    "objective": "Japan Numbers 3D Speculative Strike Analysis",
+    "risk": "MEDIUM",
+    "geometry": "ordered_3_digit",
+    "engine_version": "DSSME-Universal-1.4"
+  },
+  "PANCHANGA": {
+    "paksha": "Shukla",
+    "tithi_name": "Shashti",
+    "tithi_at_birth": "Shashti (06)",
+    "nakshatra_name": "Vishakha",
+    "nakshatra_pada": 4,
+    "nak_at_birth": "Vishakha-4",
+    "yoga_at_birth": "Vishkumbha",
+    "karana_at_birth": "Taitila",
+    "weekday_lord": "Mercury",
+    "sunrise_time": "05:33:49",
+    "sunrise_degree": "148°",
+    "sunset_time": "17:49:48",
+    "sun_degree": "148°",
+    "moon_nak_entry": "2026-09-16 04:00",
+    "moon_nak_exit": "2026-09-16 28:00",
+    "eclipse_proximity": false,
+    "gandanta_active": false,
+    "ingress_stacking": false,
+    "amavasya_zone": false,
+    "purnima_zone": false
+  },
+  "DASHA": {
+    "mahadasha_planet": "Jupiter",
+    "antardasha_planet": "Rahu",
+    "pratyantara": "Mercury",
+    "dasha_string": "Jupiter / Rahu / Mercury",
+    "upcoming_ad": [
+      {
+        "planet": "Rahu",
+        "start": "2025-07-31",
+        "end": "2027-12-24"
+      },
+      {
+        "planet": "Saturn",
+        "start": "2027-12-24",
+        "end": "2030-12-27"
+      },
+      {
+        "planet": "Mercury",
+        "start": "2030-12-27",
+        "end": "2033-09-05"
+      },
+      {
+        "planet": "Ketu",
+        "start": "2033-09-05",
+        "end": "2034-10-15"
+      },
+      {
+        "planet": "Venus",
+        "start": "2034-10-15",
+        "end": "2037-12-15"
+      },
+      {
+        "planet": "Sun",
+        "start": "2037-12-15",
+        "end": "2038-11-26"
+      },
+      {
+        "planet": "Moon",
+        "start": "2038-11-26",
+        "end": "2040-06-27"
+      }
+    ],
+    "next_mahadasha_planet": "Saturn"
+  },
+  "PLANETS": {
+    "Sun": {
+      "sign": "Leo",
+      "degree": "28°57'17\"",
+      "nakshatra": "Uttara Phalguni",
+      "pada": 1,
+      "house": 6,
+      "retro": "N",
+      "combust": "N",
+      "dispositor": "Sun",
+      "dignity": "Own",
+      "sb_ratio": 0.3,
+      "sb_rank": 7
+    },
+    "Moon": {
+      "sign": "Scorpio",
+      "degree": "02°16'23\"",
+      "nakshatra": "Vishakha",
+      "pada": 4,
+      "house": 9,
+      "retro": "N",
+      "combust": "N",
+      "dispositor": "Mars",
+      "dignity": "Debilitated",
+      "sb_ratio": 0.35,
+      "sb_rank": 6
+    },
+    "Mars": {
+      "sign": "Gemini",
+      "degree": "28°22'43\"",
+      "nakshatra": "Punarvasu",
+      "pada": 3,
+      "house": 4,
+      "retro": "N",
+      "combust": "N",
+      "dispositor": "Mercury",
+      "dignity": "Neutral",
+      "sb_ratio": 0.44,
+      "sb_rank": 5
+    },
+    "Mercury": {
+      "sign": "Virgo",
+      "degree": "14°47'09\"",
+      "nakshatra": "Hasta",
+      "pada": 2,
+      "house": 7,
+      "retro": "N",
+      "combust": "N",
+      "dispositor": "Mercury",
+      "dignity": "Exalted",
+      "sb_ratio": 0.4,
+      "sb_rank": 2
+    },
+    "Jupiter": {
+      "sign": "Cancer",
+      "degree": "22°16'07\"",
+      "nakshatra": "Aslesha",
+      "pada": 2,
+      "house": 5,
+      "retro": "N",
+      "combust": "N",
+      "dispositor": "Moon",
+      "dignity": "Exalted",
+      "sb_ratio": 0.39,
+      "sb_rank": 3
+    },
+    "Venus": {
+      "sign": "Libra",
+      "degree": "09°07'25\"",
+      "nakshatra": "Swati",
+      "pada": 1,
+      "house": 8,
+      "retro": "N",
+      "combust": "N",
+      "dispositor": "Venus",
+      "dignity": "Moolatrikona",
+      "sb_ratio": 0.43,
+      "sb_rank": 4
+    },
+    "Saturn": {
+      "sign": "Pisces",
+      "degree": "17°57'15\"",
+      "nakshatra": "Revati",
+      "pada": 1,
+      "house": 1,
+      "retro": "R",
+      "combust": "N",
+      "dispositor": "Jupiter",
+      "dignity": "Enemy",
+      "sb_ratio": 0.72,
+      "sb_rank": 1
+    },
+    "Rahu": {
+      "sign": "Aquarius",
+      "degree": "04°15'18\"",
+      "nakshatra": "Dhanishta",
+      "pada": 4,
+      "house": 12,
+      "retro": "R",
+      "combust": "N",
+      "dispositor": "Saturn",
+      "dignity": "—",
+      "sb_ratio": 1,
+      "sb_rank": 4
+    },
+    "Ketu": {
+      "sign": "Leo",
+      "degree": "04°15'18\"",
+      "nakshatra": "Magha",
+      "pada": 2,
+      "house": 6,
+      "retro": "R",
+      "combust": "N",
+      "dispositor": "Sun",
+      "dignity": "—",
+      "sb_ratio": 1,
+      "sb_rank": 4
+    },
+    "Lagna": {
+      "sign": "Pisces",
+      "degree": "25°09'04\"",
+      "nakshatra": "Revati",
+      "pada": 3,
+      "house": 1,
+      "retro": "N",
+      "combust": "N",
+      "dispositor": "Jupiter",
+      "dignity": "—"
+    }
+  },
+  "HOUSES": {
+    "1": {
+      "sign": "Pisces",
+      "lord": "Jupiter",
+      "occupants": [
+        "Saturn"
+      ],
+      "type": "Angular"
+    },
+    "2": {
+      "sign": "Aries",
+      "lord": "Mars",
+      "occupants": [],
+      "type": "Succedent"
+    },
+    "3": {
+      "sign": "Taurus",
+      "lord": "Venus",
+      "occupants": [],
+      "type": "Cadent"
+    },
+    "4": {
+      "sign": "Gemini",
+      "lord": "Mercury",
+      "occupants": [
+        "Mars"
+      ],
+      "type": "Angular"
+    },
+    "5": {
+      "sign": "Cancer",
+      "lord": "Moon",
+      "occupants": [
+        "Jupiter"
+      ],
+      "type": "Succedent"
+    },
+    "6": {
+      "sign": "Leo",
+      "lord": "Sun",
+      "occupants": [
+        "Sun",
+        "Ketu"
+      ],
+      "type": "Cadent"
+    },
+    "7": {
+      "sign": "Virgo",
+      "lord": "Mercury",
+      "occupants": [
+        "Mercury"
+      ],
+      "type": "Angular"
+    },
+    "8": {
+      "sign": "Libra",
+      "lord": "Venus",
+      "occupants": [
+        "Venus"
+      ],
+      "type": "Succedent"
+    },
+    "9": {
+      "sign": "Scorpio",
+      "lord": "Mars",
+      "occupants": [
+        "Moon"
+      ],
+      "type": "Cadent"
+    },
+    "10": {
+      "sign": "Sagittarius",
+      "lord": "Jupiter",
+      "occupants": [],
+      "type": "Angular"
+    },
+    "11": {
+      "sign": "Capricorn",
+      "lord": "Saturn",
+      "occupants": [],
+      "type": "Succedent"
+    },
+    "12": {
+      "sign": "Aquarius",
+      "lord": "Saturn",
+      "occupants": [
+        "Rahu"
+      ],
+      "type": "Cadent"
+    }
+  },
+  "SHADBALA": {
+    "_columns": [
+      "Sun",
+      "Moon",
+      "Mars",
+      "Mercury",
+      "Jupiter",
+      "Venus",
+      "Saturn"
+    ],
+    "total_virupas": [
+      117,
+      124.6,
+      132.8,
+      170.1,
+      151.2,
+      141.3,
+      216.6
+    ],
+    "kaala_pct": [
+      78.9,
+      101.1,
+      118.9,
+      101.1,
+      61.1,
+      61.1,
+      118.9
+    ],
+    "drig_bala": [
+      -15,
+      11.3,
+      -15,
+      -26.2,
+      0,
+      -15,
+      30
+    ],
+    "minimum_required": [
+      390,
+      360,
+      300,
+      420,
+      390,
+      330,
+      300
+    ],
+    "percent_required": [
+      30,
+      34.6,
+      44.3,
+      40.5,
+      38.8,
+      42.8,
+      72.2
+    ],
+    "rank": [
+      7,
+      6,
+      5,
+      2,
+      3,
+      4,
+      1
+    ],
+    "sthana_total": [
+      28.7,
+      15.2,
+      69.9,
+      119.9,
+      84.2,
+      34,
+      70.7
+    ],
+    "dig_bala": [
+      20,
+      10,
+      0,
+      0,
+      20,
+      20,
+      0
+    ],
+    "kaala_total": [
+      23.3,
+      36.7,
+      47.3,
+      36.7,
+      12.7,
+      12.7,
+      47.3
+    ],
+    "chesta_bala": [
+      0,
+      0,
+      13.5,
+      14.1,
+      0,
+      46.8,
+      60
+    ],
+    "naisargika_bala": [
+      60,
+      51.4,
+      17.1,
+      25.7,
+      34.3,
+      42.8,
+      8.6
+    ]
+  },
+  "BHAVA_BALA": {
+    "1": {
+      "sign": "Pisces",
+      "total": 343.3
+    },
+    "2": {
+      "sign": "Aries",
+      "total": 319
+    },
+    "3": {
+      "sign": "Taurus",
+      "total": 320.2
+    },
+    "4": {
+      "sign": "Gemini",
+      "total": 337.6
+    },
+    "5": {
+      "sign": "Cancer",
+      "total": 332.9
+    },
+    "6": {
+      "sign": "Leo",
+      "total": 328.4
+    },
+    "7": {
+      "sign": "Virgo",
+      "total": 341.3
+    },
+    "8": {
+      "sign": "Libra",
+      "total": 334.3
+    },
+    "9": {
+      "sign": "Scorpio",
+      "total": 331.4
+    },
+    "10": {
+      "sign": "Sagittarius",
+      "total": 321.6
+    },
+    "11": {
+      "sign": "Capricorn",
+      "total": 330.9
+    },
+    "12": {
+      "sign": "Aquarius",
+      "total": 330.9
+    }
+  },
+  "BAV": {
+    "_signs": [
+      "Aries",
+      "Taurus",
+      "Gemini",
+      "Cancer",
+      "Leo",
+      "Virgo",
+      "Libra",
+      "Scorpio",
+      "Sagittarius",
+      "Capricorn",
+      "Aquarius",
+      "Pisces"
+    ],
+    "Sun": [
+      5,
+      4,
+      5,
+      2,
+      4,
+      5,
+      1,
+      4,
+      4,
+      5,
+      4,
+      5
+    ],
+    "Moon": [
+      5,
+      5,
+      4,
+      5,
+      5,
+      2,
+      3,
+      3,
+      3,
+      7,
+      4,
+      3
+    ],
+    "Mars": [
+      3,
+      4,
+      4,
+      2,
+      2,
+      4,
+      2,
+      2,
+      5,
+      6,
+      1,
+      4
+    ],
+    "Mercury": [
+      5,
+      3,
+      8,
+      3,
+      4,
+      4,
+      3,
+      3,
+      7,
+      6,
+      5,
+      3
+    ],
+    "Jupiter": [
+      4,
+      5,
+      5,
+      7,
+      5,
+      6,
+      3,
+      3,
+      4,
+      4,
+      5,
+      5
+    ],
+    "Venus": [
+      3,
+      6,
+      5,
+      6,
+      2,
+      1,
+      5,
+      7,
+      3,
+      5,
+      5,
+      4
+    ],
+    "Saturn": [
+      3,
+      6,
+      4,
+      2,
+      6,
+      3,
+      1,
+      3,
+      2,
+      3,
+      2,
+      4
+    ],
+    "Lagna": [
+      4,
+      4.7,
+      5,
+      3.9,
+      4,
+      3.6,
+      2.6,
+      3.6,
+      4,
+      5.1,
+      3.7,
+      4
+    ]
+  },
+  "SAV": {
+    "values": [
+      28,
+      33,
+      35,
+      27,
+      28,
+      25,
+      18,
+      25,
+      28,
+      36,
+      26,
+      28
+    ],
+    "grand_total": 337,
+    "spec_houses": {
+      "H2": {
+        "sign": "Aries",
+        "sav": 28,
+        "occupant": "None"
+      },
+      "H5": {
+        "sign": "Cancer",
+        "sav": 27,
+        "occupant": "Jupiter"
+      },
+      "H8": {
+        "sign": "Libra",
+        "sav": 18,
+        "occupant": "Venus"
+      },
+      "H11": {
+        "sign": "Capricorn",
+        "sav": 36,
+        "occupant": "None"
+      }
+    },
+    "spec_sum": 63,
+    "spec_triangle": 81
+  },
+  "BAV_CURRENT_SIGN": {
+    "Sun": {
+      "sign": "Leo",
+      "bav": 4
+    },
+    "Moon": {
+      "sign": "Scorpio",
+      "bav": 3
+    },
+    "Mars": {
+      "sign": "Gemini",
+      "bav": 4
+    },
+    "Mercury": {
+      "sign": "Virgo",
+      "bav": 4
+    },
+    "Jupiter": {
+      "sign": "Cancer",
+      "bav": 7
+    },
+    "Venus": {
+      "sign": "Libra",
+      "bav": 5
+    },
+    "Saturn": {
+      "sign": "Pisces",
+      "bav": 4
+    },
+    "Rahu": {
+      "sign": "Pisces",
+      "bav": 4
+    },
+    "Ketu": {
+      "sign": "Gemini",
+      "bav": 4
+    }
+  },
+  "ASPECTS_PLANETS": [
+    {
+      "from": "Sun",
+      "to": "Rahu",
+      "fraction": "4/4",
+      "score": 60
+    },
+    {
+      "from": "Mars",
+      "to": "Mercury",
+      "fraction": "3/4",
+      "score": 45
+    },
+    {
+      "from": "Mercury",
+      "to": "Saturn",
+      "fraction": "4/4",
+      "score": 60
+    },
+    {
+      "from": "Jupiter",
+      "to": "Moon",
+      "fraction": "3/4",
+      "score": 45
+    },
+    {
+      "from": "Jupiter",
+      "to": "Saturn",
+      "fraction": "4/4",
+      "score": 60
+    },
+    {
+      "from": "Saturn",
+      "to": "Mercury",
+      "fraction": "4/4",
+      "score": 60
+    },
+    {
+      "from": "Rahu",
+      "to": "Sun",
+      "fraction": "4/4",
+      "score": 60
+    },
+    {
+      "from": "Rahu",
+      "to": "Mars",
+      "fraction": "4/4",
+      "score": 60
+    },
+    {
+      "from": "Rahu",
+      "to": "Venus",
+      "fraction": "4/4",
+      "score": 60
+    },
+    {
+      "from": "Rahu",
+      "to": "Ketu",
+      "fraction": "4/4",
+      "score": 60
+    },
+    {
+      "from": "Ketu",
+      "to": "Rahu",
+      "fraction": "4/4",
+      "score": 60
+    }
+  ],
+  "ASPECTS_BHAVAS": {
+    "1": {
+      "degree": 15,
+      "aspects": {
+        "Mercury": 45,
+        "Jupiter": 45
+      }
+    },
+    "2": {
+      "degree": 45,
+      "aspects": {
+        "Venus": 45,
+        "Ketu": 45
+      }
+    },
+    "3": {
+      "degree": 75,
+      "aspects": {
+        "Moon": 45,
+        "Saturn": 45
+      }
+    },
+    "4": {
+      "degree": 105,
+      "aspects": {
+        "Rahu": 45
+      }
+    },
+    "5": {
+      "degree": 135,
+      "aspects": {}
+    },
+    "6": {
+      "degree": 165,
+      "aspects": {
+        "Rahu": 45
+      }
+    },
+    "7": {
+      "degree": 195,
+      "aspects": {
+        "Mars": 45,
+        "Saturn": 45
+      }
+    },
+    "8": {
+      "degree": 225,
+      "aspects": {
+        "Rahu": 45
+      }
+    },
+    "9": {
+      "degree": 255,
+      "aspects": {
+        "Jupiter": 45
+      }
+    },
+    "10": {
+      "degree": 285,
+      "aspects": {
+        "Mars": 45,
+        "Saturn": 45,
+        "Ketu": 45
+      }
+    },
+    "11": {
+      "degree": 315,
+      "aspects": {
+        "Mars": 45,
+        "Jupiter": 45
+      }
+    },
+    "12": {
+      "degree": 345,
+      "aspects": {
+        "Sun": 45,
+        "Ketu": 45
+      }
+    }
+  },
+  "DIGNITY": {
+    "Sun": "Own",
+    "Moon": "Debilitated",
+    "Mars": "Neutral",
+    "Mercury": "Exalted",
+    "Jupiter": "Exalted",
+    "Venus": "Moolatrikona",
+    "Saturn": "Enemy",
+    "Rahu": "—",
+    "Ketu": "—"
+  },
+  "RETROGRADE": {
+    "Sun": false,
+    "Moon": false,
+    "Mars": false,
+    "Mercury": false,
+    "Jupiter": false,
+    "Venus": false,
+    "Saturn": true,
+    "Rahu": true,
+    "Ketu": true
+  },
+  "COMBUST": {
+    "Sun": {
+      "combust": false,
+      "sep_deg": 0,
+      "severity": null
+    },
+    "Moon": {
+      "combust": false,
+      "sep_deg": 63.318,
+      "severity": null
+    },
+    "Mars": {
+      "combust": false,
+      "sep_deg": 60.576,
+      "severity": null
+    },
+    "Mercury": {
+      "combust": false,
+      "sep_deg": 15.831,
+      "severity": null
+    },
+    "Jupiter": {
+      "combust": false,
+      "sep_deg": 36.686,
+      "severity": null
+    },
+    "Venus": {
+      "combust": false,
+      "sep_deg": 40.169,
+      "severity": null
+    },
+    "Saturn": {
+      "combust": false,
+      "sep_deg": 161.001,
+      "severity": null
+    },
+    "Rahu": {
+      "combust": false,
+      "severity": "None"
+    },
+    "Ketu": {
+      "combust": false,
+      "severity": "None"
+    }
+  },
+  "HOUSE_POSITIONS": {
+    "Sun": {
+      "house": 6,
+      "type": "Cadent"
+    },
+    "Moon": {
+      "house": 9,
+      "type": "Cadent"
+    },
+    "Mars": {
+      "house": 4,
+      "type": "Angular"
+    },
+    "Mercury": {
+      "house": 7,
+      "type": "Angular"
+    },
+    "Jupiter": {
+      "house": 5,
+      "type": "Succedent"
+    },
+    "Venus": {
+      "house": 8,
+      "type": "Succedent"
+    },
+    "Saturn": {
+      "house": 1,
+      "type": "Angular"
+    },
+    "Rahu": {
+      "house": 12,
+      "type": "Cadent"
+    },
+    "Ketu": {
+      "house": 6,
+      "type": "Cadent"
+    }
+  },
+  "SIGN_CLUSTERS": [
+    {
+      "sign": "Leo",
+      "sign_index": 4,
+      "planets": [
+        "Sun",
+        "Ketu"
+      ],
+      "sav": 28
+    }
+  ],
+  "HORA": {
+    "planet": "Venus",
+    "hora_number": 14,
+    "start_time": "18:48:00",
+    "end_time": "19:47:00"
+  },
+  "PHASE_STRESS": {
+    "new_moon_proximity_hrs": 127,
+    "full_moon_proximity_hrs": 233,
+    "ingress_within_24h": [],
+    "sign_boundary_planets": [],
+    "stress_level": "LOW"
+  },
+  "NAVAMSHA": {
+    "_available": true,
+    "Sun": {
+      "sign": "Sagittarius",
+      "dignity": "Friend",
+      "is_vargottama": false,
+      "is_pushkara": true
+    },
+    "Moon": {
+      "sign": "Cancer",
+      "dignity": "Own",
+      "is_vargottama": false,
+      "is_pushkara": true
+    },
+    "Mars": {
+      "sign": "Gemini",
+      "dignity": "Enemy",
+      "is_vargottama": true,
+      "is_pushkara": false
+    },
+    "Mercury": {
+      "sign": "Taurus",
+      "dignity": "Friend",
+      "is_vargottama": false,
+      "is_pushkara": false
+    },
+    "Jupiter": {
+      "sign": "Capricorn",
+      "dignity": "Debilitated",
+      "is_vargottama": false,
+      "is_pushkara": false
+    },
+    "Venus": {
+      "sign": "Sagittarius",
+      "dignity": "Neutral",
+      "is_vargottama": false,
+      "is_pushkara": false
+    },
+    "Saturn": {
+      "sign": "Sagittarius",
+      "dignity": "Neutral",
+      "is_vargottama": false,
+      "is_pushkara": false
+    },
+    "Rahu": {
+      "sign": "Scorpio",
+      "dignity": "—",
+      "is_vargottama": false,
+      "is_pushkara": false
+    },
+    "Ketu": {
+      "sign": "Taurus",
+      "dignity": "—",
+      "is_vargottama": false,
+      "is_pushkara": false
+    }
+  },
+  "YOGA_LIST": [
+    {
+      "name": "Deterministic Planetary Alignment",
+      "type": "spec_positive",
+      "planets_involved": [
+        "Mercury",
+        "Venus"
+      ],
+      "active": true,
+      "description": "Active Hora lord (Venus) aligned with Weekday ruler (Mercury)"
+    }
+  ]
+}
