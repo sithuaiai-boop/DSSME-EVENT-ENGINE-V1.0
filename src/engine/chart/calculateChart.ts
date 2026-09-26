@@ -164,18 +164,32 @@ export async function calculateCanonicalChart(input: DSSMEEventInput): Promise<C
   // 6. Dasha
   const dasha = calculateVimshottariDasha(moonState.totalLongitude, dateStr);
 
-  // 7. Shadbala
-  const shadbala = calculateShadbala();
-
-  // 8. Bhava Bala
-  const bhavaBala = calculateBhavaBala(houses);
-
-  // 9. Ashtakavarga
-  const ashtakavarga = calculateAshtakavarga(planetSigns);
-
-  // 10. Aspects
+  // 7. Aspects (calculated before Shadbala for drishti inputs)
   const aspectsPlanets = calculatePlanetaryAspects(planetHouseMap);
   const aspectsBhavas = calculateBhavaAspects(planetHouseMap);
+
+  // 8. Shadbala (Live Chart-Dependent Calculation from rich context)
+  const shadbala = calculateShadbala({
+    datetime: input.datetime,
+    julianDay: snap.jdUtc,
+    latitude: input.location.latitude,
+    longitude: input.location.longitude,
+    ayanamsa: snap.ayanamsa,
+    planets,
+    houses,
+    panchanga,
+    aspectsPlanets,
+    aspectsBhavas,
+    timeStr,
+    hora,
+    lagnaLongitude: snap.lagnaLongitude,
+  });
+
+  // 9. Bhava Bala (Completely independent from Shadbala)
+  const bhavaBala = calculateBhavaBala(houses);
+
+  // 10. Ashtakavarga
+  const ashtakavarga = calculateAshtakavarga(planetSigns);
 
   // 11. Navamsha
   const navamshaPlanets = buildNavamshaState(

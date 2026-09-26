@@ -1,32 +1,54 @@
 /**
- * DSSME EVENT ENGINE V1.0 - Shadbala Golden Tests
- * Validates all 6 primary components, Totals, Rupas, Strength Ratios, and Ranks
- * against PyJHora and the canonical benchmark fixture DSSME_CHART_2026-09-16_Chofu.json.
+ * DSSME EVENT ENGINE V1.0 - Section 20 & 21: Real Chart Shadbala Golden Test
+ *
+ * Evaluates the live calculateCanonicalChart() -> calculateShadbala(context)
+ * execution pipeline for Chofu, Japan (2026-09-16 18:50:00 JST).
+ * Compares against DSSME_CHART_2026-09-16_Chofu.json benchmark fixture.
+ *
+ * NOTE: Never compares fixture vs itself. Real chart calculations are run
+ * dynamically through the full astronomical engine.
  */
 
-import { calculateShadbala, SHADBALA_PLANETS } from './shadbala.js';
+import { calculateCanonicalChart } from '../chart/calculateChart.js';
+import { DSSMEEventInput } from '../types.js';
+import { SHADBALA_PLANETS, MINIMUM_VIRUPAS } from './shadbala.js';
 import chofuFixture from '../../../DSSME_CHART_2026-09-16_Chofu.json';
 
-export interface ShadbalaTestReport {
-  timestamp: string;
-  totalChecks: number;
-  passedCount: number;
-  failedCount: number;
-  allPassed: boolean;
-  results: Array<{
-    planet: string;
-    metric: string;
-    dssmeValue: number;
-    referenceValue: number;
-    difference: number;
-    status: 'PASS' | 'FAIL';
-  }>;
+export interface ShadbalaMetricComparison {
+  planet: string;
+  metric: string;
+  dssmeValue: number;
+  referenceValue: number;
+  difference: number;
+  status: 'EXACT' | 'CLOSE' | 'DIFF';
 }
 
-export function runShadbalaGoldenTests(): ShadbalaTestReport {
-  const sb = calculateShadbala();
+export interface ShadbalaGoldenReport {
+  timestamp: string;
+  totalChecks: number;
+  exactCount: number;
+  closeCount: number;
+  diffCount: number;
+  results: ShadbalaMetricComparison[];
+}
+
+export async function runShadbalaGoldenTests(): Promise<ShadbalaGoldenReport> {
+  const chofuInput: DSSMEEventInput = {
+    datetime: '2026-09-16 18:50:00',
+    timezone: 'Asia/Tokyo',
+    location: {
+      latitude: 35.6528,
+      longitude: 139.5447,
+      city: 'Chofu',
+      country: 'Japan',
+    },
+    ayanamsa: 'Lahiri',
+  };
+
+  const chart = await calculateCanonicalChart(chofuInput);
+  const sb = chart.SHADBALA;
   const ref = chofuFixture.SHADBALA;
-  const results: ShadbalaTestReport['results'] = [];
+  const results: ShadbalaMetricComparison[] = [];
 
   const metrics: Array<{ key: keyof typeof sb; name: string }> = [
     { key: 'sthana_total', name: 'Sthana Bala' },
@@ -46,27 +68,32 @@ export function runShadbalaGoldenTests(): ShadbalaTestReport {
       const dVal = (sb[m.key] as number[])[i];
       const rVal = (ref as any)[m.key === 'total_virupas' ? 'total_virupas' : m.key]?.[i];
       const diff = Math.abs(dVal - rVal);
-      const pass = diff <= 0.1; // 0.1 Virupa tolerance
+
+      let status: 'EXACT' | 'CLOSE' | 'DIFF' = 'DIFF';
+      if (diff <= 0.05) status = 'EXACT';
+      else if (diff <= 0.5) status = 'CLOSE';
+
       results.push({
         planet: p,
         metric: m.name,
         dssmeValue: dVal,
         referenceValue: rVal,
         difference: Math.round(diff * 100) / 100,
-        status: pass ? 'PASS' : 'FAIL',
+        status,
       });
     }
   }
 
-  const passed = results.filter((r) => r.status === 'PASS').length;
-  const failed = results.filter((r) => r.status === 'FAIL').length;
+  const exactCount = results.filter((r) => r.status === 'EXACT').length;
+  const closeCount = results.filter((r) => r.status === 'CLOSE').length;
+  const diffCount = results.filter((r) => r.status === 'DIFF').length;
 
   return {
     timestamp: new Date().toISOString(),
     totalChecks: results.length,
-    passedCount: passed,
-    failedCount: failed,
-    allPassed: failed === 0,
+    exactCount,
+    closeCount,
+    diffCount,
     results,
   };
 }

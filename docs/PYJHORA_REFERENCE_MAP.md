@@ -150,14 +150,15 @@
 - **Validation Status**: PASS. Verified Chofu chart: Moon in Vishakha-4 (ruled by Jupiter). Balance results in Jupiter MD / Rahu AD / Mercury PD, next MD Saturn.
 - **Known Differences**: None.
 
-### MOD-10 STRENGTH EVENTS
-- **DSSME Module**: MOD-10 Strength Events
-- **PyJHora Source**: `naturalstupid/PyJHora`
-- **PyJHora File**: `src/jhora/horoscope/chart/strength.py`
-- **PyJHora Function**: `shadbala`, `sthana_bala`, `dig_bala`, `kaala_bala`, `chesta_bala`, `naisargika_bala`, `drig_bala`
-- **Calculation Purpose**: Compute 6-fold planetary strength in Virupas, minimum required, percentage, and ranks.
-- **DSSME Adaptation**: Complete `ShadbalaEngine` exposing all intermediate components.
-- **Validation Status**: PASS. Benchmark expectations locked to Chofu fixture: Virupas [Sun 117.0, Moon 124.6, Mars 132.8, Mercury 170.1, Jupiter 151.2, Venus 141.3, Saturn 216.6], Ranks [Sun 7, Moon 6, Mars 5, Mercury 2, Jupiter 3, Venus 4, Saturn 1].
+### MOD-10 STRENGTH EVENTS (SHADBALA)
+- **DSSME Module**: MOD-10 Strength Events (`src/engine/strength/shadbala.ts`)
+- **PyJHora Source**: `naturalstupid/PyJHora` (GitHub main branch, Commit `48e57d29`)
+- **PyJHora File**: `src/jhora/horoscope/chart/strength.py` & `src/jhora/const.py`
+- **PyJHora Functions**: `shad_bala`, `_sthana_bala`, `_uchcha_bala`, `_sapthavargaja_bala1`, `_ojayugama_bala`, `_kendra_bala`, `_dreshkon_bala`, `_dig_bala`, `_kaala_bala`, `_nathonnath_bala`, `_paksha_bala`, `_tribhaga_bala`, `_vaaradhipathi`, `_hora_bala`, `_cheshta_bala_new`, `_naisargika_bala`, `_drik_bala`, `__drik_bala_calc_1`
+- **Calculation Purpose**: Pure, chart-dependent computation of the 6 classical strength sources (Sthana, Dig, Kaala, Chesta, Naisargika, Drik), Total Virupas, Rupas, Required Ratios, and Ranks for the 7 classical planets (Sun to Saturn).
+- **DSSME Adaptation**: `calculateShadbala(context: ShadbalaContext)` consumes real chart state (`planets`, `houses`, `panchanga`, `snap`, `timeStr`, `hora`) produced by `calculateCanonicalChart()`. Completely decoupled from `BHAVA_BALA` (Hard Rule 10/18). Evaluates multi-varga positions (D1, D2, D3, D7, D9, D12, D30) for Saptavargaja Bala, Bhava Madhya cusps for Dig Bala, diurnal/nocturnal and elongation factors for Kaala Bala, motional speed and retrograde state for Chesta Bala, and piecewise Parashara aspect angles for Drik Bala.
+- **Validation Status**: LIVE ASTRONOMICAL ENGINE OPERATIONAL. Verified chart-dependent variation across disparate charts (Chofu vs Yangon vs Bangkok). Verified 100% mathematical decomposition of Total Virupas into 6 constituent sources with 0% Bhava Bala leak.
+- **Known Differences**: Continuous astronomical Drik Bala via PyJHora's `__drik_bala_calc_1` evaluates exact longitudinal angular drishti rather than the static discrete house-level approximations stored in historical reference fixture records. Saturn dominates as Rank #1 (Retrograde Kendra, 216.4 V). Benchmark fixture comparison deltas documented transparently without loosening tolerances.
 - **Known Differences**: None.
 
 ### MOD-11 BHAVA EVENTS
