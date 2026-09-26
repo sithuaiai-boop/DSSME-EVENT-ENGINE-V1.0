@@ -1,0 +1,110 @@
+{
+  "schema_version": "2.0",
+  "fixture_id": "PYJHORA_SB_018",
+  "source": {
+    "engine": "PyJHora",
+    "repository": "naturalstupid/PyJHora",
+    "source_file": "src/jhora/horoscope/chart/strength.py",
+    "function": "shad_bala",
+    "commit": "48e57d29bcfa37265a7f920257ad1fba968846c2"
+  },
+  "input": {
+    "date": "2026-09-16",
+    "time": "18:50:00",
+    "timezone_offset": 9.0,
+    "latitude": 35.6528,
+    "longitude": 139.5447,
+    "location_name": "Chofu, Japan",
+    "ayanamsa": "Lahiri",
+    "body_mode": 7
+  },
+  "oracle": {
+    "sthana": {
+      "Sun": 208.44,
+      "Moon": 173.78,
+      "Mars": 159.67,
+      "Mercury": 217.25,
+      "Jupiter": 168.27,
+      "Venus": 94.2,
+      "Saturn": 183.03
+    },
+    "kaala": {
+      "Sun": 23.33,
+      "Moon": 41.15,
+      "Mars": 47.33,
+      "Mercury": 36.67,
+      "Jupiter": 17.15,
+      "Venus": 17.15,
+      "Saturn": 47.33
+    },
+    "dig": {
+      "Sun": 45.1,
+      "Moon": 37.28,
+      "Mars": 54.66,
+      "Mercury": 50.25,
+      "Jupiter": 32.56,
+      "Venus": 28.2,
+      "Saturn": 51.14
+    },
+    "chesta": {
+      "Sun": 0.0,
+      "Moon": 0.0,
+      "Mars": 30.0,
+      "Mercury": 30.0,
+      "Jupiter": 30.0,
+      "Venus": 13.06,
+      "Saturn": 60.0
+    },
+    "naisargika": {
+      "Sun": 60.0,
+      "Moon": 51.43,
+      "Mars": 17.14,
+      "Mercury": 25.71,
+      "Jupiter": 34.29,
+      "Venus": 42.86,
+      "Saturn": 8.57
+    },
+    "drik": {
+      "Sun": -7.79,
+      "Moon": -7.9,
+      "Mars": 5.64,
+      "Mercury": -18.72,
+      "Jupiter": 1.2,
+      "Venus": -19.29,
+      "Saturn": 14.0
+    },
+    "total_virupas": {
+      "Sun": 329.08,
+      "Moon": 295.74,
+      "Mars": 314.44,
+      "Mercury": 341.16,
+      "Jupiter": 283.47,
+      "Venus": 176.18,
+      "Saturn": 364.07
+    },
+    "rupa": {
+      "Sun": 5.48,
+      "Moon": 4.93,
+      "Mars": 5.24,
+      "Mercury": 5.69,
+      "Jupiter": 4.72,
+      "Venus": 2.94,
+      "Saturn": 6.07
+    },
+    "strength_ratio": {
+      "Sun": 0.84,
+      "Moon": 0.82,
+      "Mars": 1.05,
+      "Mercury": 0.81,
+      "Jupiter": 0.73,
+      "Venus": 0.53,
+      "Saturn": 1.21
+    }
+  },
+  "precision": {
+    "component_decimals": 2,
+    "total_decimals": 2,
+    "rupa_decimals": 2,
+    "ratio_decimals": 2
+  }
+}

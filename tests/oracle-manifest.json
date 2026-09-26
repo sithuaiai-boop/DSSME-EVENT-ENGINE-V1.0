@@ -1,0 +1,170 @@
+{
+  "oracle_engine": "PyJHora",
+  "repository": "naturalstupid/PyJHora",
+  "source_file": "src/jhora/horoscope/chart/strength.py",
+  "function": "shad_bala",
+  "pinned_commit": "48e57d29bcfa37265a7f920257ad1fba968846c2",
+  "ayanamsa": "Lahiri",
+  "planet_order": [
+    "Sun",
+    "Moon",
+    "Mars",
+    "Mercury",
+    "Jupiter",
+    "Venus",
+    "Saturn"
+  ],
+  "rounding": {
+    "components": 2,
+    "total": 2,
+    "rupa": 2,
+    "strength": 2
+  },
+  "fixture_count": 18,
+  "fixtures": [
+    {
+      "fixture_id": "PYJHORA_SB_001",
+      "name": "Normal Daytime Chart",
+      "purpose": "F01 \u2014 normal daytime chart",
+      "location": "Tokyo, Japan",
+      "datetime": "2026-03-21 12:00:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_001.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_002",
+      "name": "Normal Nighttime Chart",
+      "purpose": "F02 \u2014 normal nighttime chart",
+      "location": "London, UK",
+      "datetime": "2026-10-15 23:30:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_002.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_003",
+      "name": "Waxing Moon Chart",
+      "purpose": "F03 \u2014 waxing Moon",
+      "location": "New York, USA",
+      "datetime": "2026-05-18 14:00:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_003.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_004",
+      "name": "Waning Moon Chart",
+      "purpose": "F04 \u2014 waning Moon",
+      "location": "Paris, France",
+      "datetime": "2026-11-03 04:00:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_004.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_005",
+      "name": "Retrograde Planet Chart",
+      "purpose": "F05 \u2014 retrograde planet",
+      "location": "Chofu, Japan",
+      "datetime": "2026-09-16 18:50:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_005.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_006",
+      "name": "Direct Planet Chart",
+      "purpose": "F06 \u2014 direct planet",
+      "location": "Singapore",
+      "datetime": "2026-01-10 09:00:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_006.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_007",
+      "name": "Strong Kendra Distribution Chart",
+      "purpose": "F07 \u2014 strong Kendra distribution",
+      "location": "Yangon, Myanmar",
+      "datetime": "2026-09-25 12:01:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_007.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_008",
+      "name": "Non-Kendra Distribution Chart",
+      "purpose": "F08 \u2014 non-Kendra distribution",
+      "location": "Sydney, Australia",
+      "datetime": "2026-07-04 15:45:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_008.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_009",
+      "name": "Strong Benefic Aspect Pattern",
+      "purpose": "F09 \u2014 strong benefic aspect pattern",
+      "location": "Bangkok, Thailand",
+      "datetime": "2026-02-14 10:30:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_009.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_010",
+      "name": "Strong Malefic Aspect Pattern",
+      "purpose": "F10 \u2014 strong malefic aspect pattern",
+      "location": "Los Angeles, USA",
+      "datetime": "2026-08-08 20:15:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_010.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_011",
+      "name": "Exaltation/Debilitation Condition",
+      "purpose": "F11 \u2014 exaltation/debilitation condition",
+      "location": "Mumbai, India",
+      "datetime": "2026-04-20 06:15:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_011.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_012",
+      "name": "Saptavargaja-sensitive Chart",
+      "purpose": "F12 \u2014 Saptavargaja-sensitive chart",
+      "location": "Cairo, Egypt",
+      "datetime": "2026-06-21 11:30:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_012.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_013",
+      "name": "D9 Odd/Even Condition",
+      "purpose": "F13 \u2014 D9 odd/even condition",
+      "location": "Dubai, UAE",
+      "datetime": "2026-12-12 16:00:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_013.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_014",
+      "name": "D3/Dreshkon Boundary Condition",
+      "purpose": "F14 \u2014 D3/Dreshkon boundary condition",
+      "location": "Berlin, Germany",
+      "datetime": "2026-05-01 08:20:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_014.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_015",
+      "name": "Day/Night Transition Condition",
+      "purpose": "F15 \u2014 day/night transition condition",
+      "location": "Rome, Italy",
+      "datetime": "2026-09-23 06:00:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_015.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_016",
+      "name": "Bhava-Madhya / Cusp-sensitive Chart",
+      "purpose": "F16 \u2014 Bhava-Madhya / house-cusp-sensitive chart",
+      "location": "Honolulu, USA",
+      "datetime": "2026-07-20 17:00:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_016.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_017",
+      "name": "Planetary-War Candidate Condition",
+      "purpose": "F17 \u2014 planetary-war candidate condition",
+      "location": "Toronto, Canada",
+      "datetime": "2026-03-05 19:40:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_017.json"
+    },
+    {
+      "fixture_id": "PYJHORA_SB_018",
+      "name": "Existing Chofu Regression Chart",
+      "purpose": "F18 \u2014 existing Chofu regression chart",
+      "location": "Chofu, Japan",
+      "datetime": "2026-09-16 18:50:00",
+      "file": "tests/oracle/pyjhora/PYJHORA_SB_018.json"
+    }
+  ]
+}

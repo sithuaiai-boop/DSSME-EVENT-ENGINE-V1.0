@@ -169,6 +169,7 @@ export async function calculateCanonicalChart(input: DSSMEEventInput): Promise<C
   const aspectsBhavas = calculateBhavaAspects(planetHouseMap);
 
   // 8. Shadbala (Live Chart-Dependent Calculation from rich context)
+  const houseList = Object.values(houses);
   const shadbala = calculateShadbala({
     datetime: input.datetime,
     julianDay: snap.jdUtc,
@@ -176,7 +177,8 @@ export async function calculateCanonicalChart(input: DSSMEEventInput): Promise<C
     longitude: input.location.longitude,
     ayanamsa: snap.ayanamsa,
     planets,
-    houses,
+    houses: houseList,
+    bhavaMadhya: houseList.map((h) => h.cuspDegree ?? (((h.houseNumber ?? (h as any).house ?? 1) - 1) * 30.0 + 15.0)),
     panchanga,
     aspectsPlanets,
     aspectsBhavas,

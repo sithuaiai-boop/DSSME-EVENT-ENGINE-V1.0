@@ -54,9 +54,9 @@ export async function runShadbalaFirewallTest(): Promise<FirewallTestReport> {
     const n = sb.naisargika_bala[i];
     const dr = sb.drig_bala[i];
 
-    const sumOfSix = Math.round((s + d + k + c + n + dr) * 10) / 10;
+    const sumOfSix = Math.round((s + d + k + c + n + dr) * 100) / 100;
     const reportedTotal = sb.total_virupas[i];
-    const diff = Math.abs(sumOfSix - reportedTotal);
+    const diff = Math.round(Math.abs(sumOfSix - reportedTotal) * 100) / 100;
 
     // If diff is greater than 0.05, something unapproved was added
     const pass = diff <= 0.05;

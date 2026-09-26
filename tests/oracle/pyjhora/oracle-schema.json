@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PyJHora Shadbala Oracle Fixture Schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "fixture_id",
+    "source",
+    "input",
+    "oracle",
+    "precision"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["2.0"]
+    },
+    "fixture_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "engine",
+        "repository",
+        "source_file",
+        "function",
+        "commit"
+      ],
+      "properties": {
+        "engine": { "type": "string" },
+        "repository": { "type": "string" },
+        "source_file": { "type": "string" },
+        "function": { "type": "string" },
+        "commit": { "type": "string" }
+      }
+    },
+    "input": {
+      "type": "object",
+      "required": [
+        "date",
+        "time",
+        "timezone_offset",
+        "latitude",
+        "longitude",
+        "location_name",
+        "ayanamsa",
+        "body_mode"
+      ],
+      "properties": {
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "timezone_offset": { "type": "number" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "location_name": { "type": "string" },
+        "ayanamsa": { "type": "string" },
+        "body_mode": { "type": "number" }
+      }
+    },
+    "oracle": {
+      "type": "object",
+      "required": [
+        "sthana",
+        "kaala",
+        "dig",
+        "chesta",
+        "naisargika",
+        "drik",
+        "total_virupas",
+        "rupa",
+        "strength_ratio"
+      ],
+      "properties": {
+        "sthana": { "type": "object" },
+        "kaala": { "type": "object" },
+        "dig": { "type": "object" },
+        "chesta": { "type": "object" },
+        "naisargika": { "type": "object" },
+        "drik": { "type": "object" },
+        "total_virupas": { "type": "object" },
+        "rupa": { "type": "object" },
+        "strength_ratio": { "type": "object" }
+      }
+    },
+    "precision": {
+      "type": "object",
+      "required": [
+        "component_decimals",
+        "total_decimals",
+        "rupa_decimals",
+        "ratio_decimals"
+      ],
+      "properties": {
+        "component_decimals": { "type": "number" },
+        "total_decimals": { "type": "number" },
+        "rupa_decimals": { "type": "number" },
+        "ratio_decimals": { "type": "number" }
+      }
+    }
+  }
+}
