@@ -35,6 +35,8 @@ export function detectChartTransitions(
   const events: DSSMEEvent[] = [];
   const dateStr = currChart.IDENTITY.date;
   let counter = 1;
+  const safeContext = contextNote.replace(/[^a-zA-Z0-9]/g, '_');
+  const sessionNonce = Math.random().toString(36).substring(2, 7);
 
   const createEvent = (
     module: string,
@@ -47,7 +49,7 @@ export function detectChartTransitions(
     spd?: number,
     metadata?: Record<string, unknown>
   ): DSSMEEvent => ({
-    id: `EV-TR-${dateStr.replace(/-/g, '')}-${Date.now().toString(36)}-${String(counter++).padStart(3, '0')}`,
+    id: `EV-TR-${dateStr.replace(/-/g, '')}-${safeContext}-${sessionNonce}-${String(counter++).padStart(3, '0')}`,
     module,
     eventCode,
     timestampUTC: timestampUtc,
@@ -389,13 +391,19 @@ export async function executeNewDayWorkflow(
 
   // Deduplicate events by unique key: module + eventCode + object + timestampLocal
   const seenKeys = new Set<string>();
+  const seenIds = new Set<string>();
   const deduplicatedEvents: DSSMEEvent[] = [];
 
   for (const ev of allEvents) {
     const key = `${ev.module}|${ev.eventCode}|${ev.object || ''}|${ev.timestampLocal}|${String(ev.newState)}`;
     if (!seenKeys.has(key)) {
       seenKeys.add(key);
-      deduplicatedEvents.push(ev);
+      let uniqueId = ev.id;
+      if (seenIds.has(uniqueId)) {
+        uniqueId = `${ev.id}-${Math.random().toString(36).substring(2, 6)}`;
+      }
+      seenIds.add(uniqueId);
+      deduplicatedEvents.push({ ...ev, id: uniqueId });
     }
   }
 

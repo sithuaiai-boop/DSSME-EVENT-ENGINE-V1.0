@@ -757,9 +757,9 @@ export const NewDayControl: React.FC<NewDayControlProps> = ({ onDaySelected }) =
                       </div>
 
                       <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
-                        {drawTestReport.results.map((t) => (
+                        {drawTestReport.results.map((t, tIdx) => (
                           <div
-                            key={t.id}
+                            key={`${t.id}-${tIdx}`}
                             className={`p-2 rounded-lg border text-[11px] flex items-center justify-between ${
                               t.status === 'PASS'
                                 ? 'bg-slate-950/80 border-slate-800 text-slate-300'
@@ -815,9 +815,9 @@ export const NewDayControl: React.FC<NewDayControlProps> = ({ onDaySelected }) =
 
                       {/* Test Items Table */}
                       <div className="space-y-1.5 max-h-80 overflow-y-auto pr-1">
-                        {testReport.results.map((t) => (
+                        {testReport.results.map((t, tIdx) => (
                           <div
-                            key={t.id}
+                            key={`${t.id}-${tIdx}`}
                             className={`p-2.5 rounded-lg border text-xs flex items-center justify-between ${
                               t.status === 'PASS'
                                 ? 'bg-slate-950/80 border-slate-800 text-slate-300'

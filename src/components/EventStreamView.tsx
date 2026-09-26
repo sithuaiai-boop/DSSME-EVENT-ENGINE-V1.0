@@ -139,8 +139,8 @@ export const EventStreamView: React.FC<EventStreamViewProps> = ({ events }) => {
           {filteredEvents.length === 0 ? (
             <div className="p-8 text-center text-slate-500 text-sm">No events match the selected filters.</div>
           ) : (
-            filteredEvents.map((ev) => (
-              <div key={ev.id} className="p-3 hover:bg-slate-800/40 transition-colors flex flex-col gap-1.5">
+            filteredEvents.map((ev, evIdx) => (
+              <div key={ev.id ? `${ev.id}-${evIdx}` : `event-${evIdx}`} className="p-3 hover:bg-slate-800/40 transition-colors flex flex-col gap-1.5">
                 <div className="flex items-center justify-between text-xs">
                   <div className="flex items-center gap-2">
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
